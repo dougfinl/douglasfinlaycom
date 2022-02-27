@@ -18,8 +18,8 @@ languageCode = "en-gb"
 
     since = 2022
 
-    colorScheme = "auto"
-    hideColorSchemeToggle = false
+    colorScheme = "dark"
+    hideColorSchemeToggle = true
 
 [[params.social]]
     name = "GitHub"
@@ -39,18 +39,18 @@ languageCode = "en-gb"
     weight = 1
     url = "mailto:douglas@douglasfinlay.com"
 
-[[menu.main]]
-    name = "About"
-    weight = 1
-    url = "about"
+# [[menu.main]]
+#     name = "About"
+#     weight = 1
+#     url = "about"
 
-[[menu.main]]
-    name = "Projects"
-    weight = 2
-    url = "projects"
+# [[menu.main]]
+#     name = "Projects"
+#     weight = 2
+#     url = "projects"
 
-[[menu.main]]
-    name = "Theatre"
-    weight = 3
-    url = "theatre"
+# [[menu.main]]
+#     name = "Theatre"
+#     weight = 3
+#     url = "theatre"
     
