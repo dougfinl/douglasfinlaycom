@@ -7,36 +7,36 @@ languageCode = "en-gb"
 [params]
     author = "Douglas Finlay"
     info = "Software Developer"
-    description = "Welcome to my corner of the sky"
-    keywords = ""
+    description = "Douglas Finlay's personal portfolio"
+    keywords = "developer,portfolio"
 
-    avatarURL = "images/headshot.jpg"
+    avatarURL = "images/headshot-douglasfinlay.jpg"
     gravatar = "douglas@douglasfinlay.com"
 
-    favicon_32 = "/img/favicon-32x32.png"
-    favicon_16 = "/img/favicon-16x16.png"
+    favicon_32 = "/images/favicon-32x32.png"
+    favicon_16 = "/images/favicon-16x16.png"
 
     since = 2022
 
-    colorScheme = "dark"
-    hideColorSchemeToggle = true
+    colorScheme = "auto"
+    hideColorSchemeToggle = false
 
 [[params.social]]
     name = "GitHub"
     icon = "fa fa-2x fa-github"
     weight = 1
-    url = "https://github.com/dougfinl"
+    url = "https://github.com/douglasfinlay"
 
 [[params.social]]
     name = "LinkedIn"
     icon = "fa fa-2x fa-linkedin"
-    weight = 1
+    weight = 2
     url = "https://uk.linkedin.com/in/douglasfinlay"
 
 [[params.social]]
     name = "Mail"
     icon = "fa fa-2x fa-envelope"
-    weight = 1
+    weight = 3
     url = "mailto:douglas@douglasfinlay.com"
 
 # [[menu.main]]
