@@ -6,6 +6,8 @@ languageCode = "en-gb"
 
 enableEmoji = true
 
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
 [params]
     author = "Douglas Finlay"
     info = "Software Engineer"
@@ -60,7 +62,7 @@ enableEmoji = true
 #     url = "theatre"
 
 [sitemap]
-  changefreq = "weekly"
+  changefreq = "monthly"
   filename = "sitemap.xml"
   priority = 0.5
     
