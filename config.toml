@@ -6,9 +6,9 @@ languageCode = "en-gb"
 
 [params]
     author = "Douglas Finlay"
-    info = "Software Developer"
+    info = "Software Engineer"
     description = "Douglas Finlay's personal portfolio"
-    keywords = "developer,portfolio"
+    keywords = "developer,engineer,portfolio"
 
     avatarURL = "images/headshot-douglasfinlay.jpg"
     gravatar = "douglas@douglasfinlay.com"
@@ -39,10 +39,10 @@ languageCode = "en-gb"
     weight = 3
     url = "mailto:douglas@douglasfinlay.com"
 
-# [[menu.main]]
-#     name = "About"
-#     weight = 1
-#     url = "about"
+[[menu.main]]
+    name = "About"
+    weight = 1
+    url = "about"
 
 # [[menu.main]]
 #     name = "Projects"
