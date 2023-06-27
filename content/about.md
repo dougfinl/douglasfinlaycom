@@ -4,7 +4,7 @@ description: 'About me'
 date: 2023-06-27
 ---
 
-Hi! 👨‍💻 I'm Doug, a full-stack software engineer based in Leicestershire, United Kingdom. I work primarily with web
+Hi! :man_technologist: I'm Doug, a full-stack software engineer based in Leicestershire, United Kingdom. I work primarily with web
 technologies including:
 
 - Node.js

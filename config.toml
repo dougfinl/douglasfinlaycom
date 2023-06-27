@@ -4,11 +4,13 @@ theme = "hugo-coder"
 
 languageCode = "en-gb"
 
+enableEmoji = true
+
 [params]
     author = "Douglas Finlay"
     info = "Software Engineer"
     description = "Douglas Finlay's personal portfolio"
-    keywords = "developer,engineer,portfolio"
+    keywords = "software,developer,engineer,programmer,portfolio,typescript,theatre,lighting,designer"
 
     avatarURL = "images/headshot-douglasfinlay.jpg"
     gravatar = "douglas@douglasfinlay.com"
@@ -56,4 +58,9 @@ languageCode = "en-gb"
 #     name = "Theatre"
 #     weight = 3
 #     url = "theatre"
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
     
