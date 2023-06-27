@@ -20,6 +20,9 @@ languageCode = "en-gb"
 
     colorScheme = "auto"
     hideColorSchemeToggle = false
+    
+[params.goatCounter]
+    code = "douglasfinlay"
 
 [[params.social]]
     name = "GitHub"
