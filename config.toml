@@ -11,8 +11,8 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 [params]
     author = "Douglas Finlay"
     info = "Software Engineer"
-    description = "Douglas Finlay's personal portfolio"
-    keywords = "software,developer,engineer,programmer,portfolio,typescript,theatre,lighting,designer"
+    description = "Software engineering and technical theatre"
+    keywords = "douglas finlay,douglas,finlay,software,developer,engineer,programmer,portfolio,typescript,theatre,lighting,designer,lighting programmer,production electrician"
 
     avatarURL = "images/headshot-douglasfinlay.jpg"
     gravatar = "douglas@douglasfinlay.com"
@@ -50,16 +50,6 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     name = "About"
     weight = 1
     url = "about"
-
-# [[menu.main]]
-#     name = "Projects"
-#     weight = 2
-#     url = "projects"
-
-# [[menu.main]]
-#     name = "Theatre"
-#     weight = 3
-#     url = "theatre"
 
 [sitemap]
   changefreq = "monthly"
