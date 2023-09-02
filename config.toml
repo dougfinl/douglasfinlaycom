@@ -43,15 +43,9 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     url = "https://uk.linkedin.com/in/douglasfinlay"
 
 [[params.social]]
-    name = "Mandy"
-    image = "/images/mandy.png"
-    weight=3
-    url = "https://www.mandy.com/uk/c/douglasfinlay"
-
-[[params.social]]
     name = "Mail"
     icon = "fa fa-2x fa-envelope"
-    weight = 4
+    weight = 3
     url = "mailto:douglas@douglasfinlay.com"
 
 [[menu.main]]
