@@ -1,0 +1,50 @@
+.theatre-credits {
+    .credit {
+        width: 100%;
+        margin-bottom: 1.2em;
+
+        .header {
+            .row {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .show-venue {
+                font-size: 0.9em;
+                font-style: italic;
+                text-align: right;
+            }
+
+            @media only screen and (max-width: 600px) {
+                .row {
+                    flex-direction: column;
+                }
+
+                .show-venue {
+                    line-height: 0.9em;
+                    margin-bottom: 0.2em;
+                    margin-left: 1em;
+                    text-align: left;
+                }
+            }
+
+            .show-title {
+                font-size: 1.1em;
+                font-weight: bold;
+            }
+
+            .show-company {
+                font-size: 0.9em;
+                font-style: italic;
+                line-height: 0.9em;
+                margin-bottom: 0.2em;
+                margin-left: 1em;
+            }
+        }
+    }
+
+    .credit:last-of-type {
+        margin-bottom: unset;
+    }
+}

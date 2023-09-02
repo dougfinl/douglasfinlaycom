@@ -10,7 +10,7 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [params]
     author = "Douglas Finlay"
-    info = "Software Engineer"
+    info = "Software Engineering · Technical Theatre"
     description = "Software engineering and technical theatre"
     keywords = "douglas finlay,douglas,finlay,software,developer,engineer,programmer,portfolio,typescript,theatre,lighting,designer,lighting programmer,production electrician"
 
@@ -24,6 +24,8 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 
     colorScheme = "auto"
     hideColorSchemeToggle = false
+
+    customSCSS = ["theatre.scss"]
     
 [params.goatCounter]
     code = "douglasfinlay"
@@ -50,6 +52,11 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     name = "About"
     weight = 1
     url = "about"
+
+[[menu.main]]
+    name = "Theatre"
+    weight = 1
+    url = "theatre"
 
 [sitemap]
   changefreq = "monthly"
