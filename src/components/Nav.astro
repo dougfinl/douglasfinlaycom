@@ -1,0 +1,33 @@
+---
+import { NAV, SITE } from '../config';
+---
+
+<nav class='container flex justify-between items-center h-24 shrink-0'>
+    <div class='text-xl sm:text-2xl uppercase'>
+        <a href='/'>{SITE.title}</a>
+    </div>
+
+    <ul class='flex uppercase text-md' transition:animate='fade'>
+        {
+            Object.values(NAV).map(({ path, title }) => (
+                <li class='ml-6'>
+                    <a
+                        class:list={[
+                            `border-b-2 hover:border-gray-700 transition`,
+                            Astro.url.pathname !== path
+                                ? 'border-transparent'
+                                : '',
+                            Astro.url.pathname === path
+                                ? 'border-gray-700'
+                                : '',
+                        ]}
+                        href={path}
+                        title={title}
+                    >
+                        {title}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>

@@ -1,0 +1,40 @@
+---
+import Head from '../components/Head.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../config';
+import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.scss';
+
+interface Props {
+    fullWidth?: boolean;
+    pageDescription?: string;
+    pageTitle?: string;
+}
+
+const { fullWidth, pageDescription, pageTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang='en'>
+    <head>
+        <Head
+            title={pageTitle ? `${pageTitle} · ${SITE.title}` : SITE.title}
+            description={pageDescription ?? SITE.description}
+        />
+
+        <ViewTransitions />
+    </head>
+
+    <body class='bg-zinc-100 px-2'>
+        <div class='flex flex-col h-screen'>
+            <Nav />
+
+            <main class:list={['grow pb-4', { container: !fullWidth }]}>
+                <slot />
+            </main>
+
+            <Footer />
+        </div>
+    </body>
+</html>
