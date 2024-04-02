@@ -1,0 +1,147 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import TheatreCreditTags from '../../components/TheatreCreditTags.astro';
+
+export async function getStaticPaths() {
+    const theatreCreditEntries = await getCollection('theatre');
+
+    return theatreCreditEntries.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const instancesByYear: Record<string, typeof entry.data.instances> = {};
+
+entry.data.instances.forEach((instance) => {
+    const year = instance.from.getUTCFullYear().toString();
+
+    instancesByYear[year] ??= [];
+    instancesByYear[year].push(instance);
+});
+---
+
+<!-- TODO: noindex -->
+<Layout pageTitle={entry.data.title} noPadding>
+    <a href='/theatre' class='flex gap-1 items-center px-2'>
+        <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='16'
+            height='16'
+            fill='currentColor'
+            class='bi bi-arrow-left inline'
+            viewBox='0 0 16 16'
+        >
+            <path
+                fill-rule='evenodd'
+                d='M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8'
+            ></path>
+        </svg>
+
+        <span>Back</span>
+    </a>
+
+    <article>
+        {
+            entry.data.photo && (
+                <div>
+                    <Image
+                        src={entry.data.photo.image}
+                        alt={entry.data.title}
+                        width={900}
+                        densities={[1.5, 2]}
+                        class='aspect-video object-cover min-w-full'
+                    />
+
+                    <div class='text-right text-sm italic px-2'>
+                        <span class='font-medium'>Photo: </span>
+                        {entry.data.photo.credit}
+                    </div>
+                </div>
+            )
+        }
+
+        <div class='px-2'>
+            <TheatreCreditTags tags={entry.data.tags} />
+
+            <div class='grid grid-cols-1 sm:grid-cols-2 text-sm mb-4'>
+                <div>
+                    <dl class='divide-y divide-gray-200'>
+                        <div
+                            class='px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0'
+                        >
+                            <dt class='text-sm font-medium leading-6'>
+                                Company
+                            </dt>
+                            <dd
+                                class='mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0'
+                            >
+                                {entry.data.company}
+                            </dd>
+                        </div>
+                        <div
+                            class='px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0'
+                        >
+                            <dt class='text-sm font-medium leading-6'>Role</dt>
+                            <dd
+                                class='mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0'
+                            >
+                                {entry.data.role}
+                            </dd>
+                        </div>
+                        {
+                            entry.data.director && (
+                                <div class='px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0'>
+                                    <dt class='text-sm font-medium leading-6'>
+                                        Director
+                                    </dt>
+                                    <dd class='mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0'>
+                                        {entry.data.director}
+                                    </dd>
+                                </div>
+                            )
+                        }
+                        <div
+                            class='px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0'
+                        >
+                            <dt class='text-sm font-medium leading-6'>
+                                Lighting Designer
+                            </dt>
+                            <dd
+                                class='mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0'
+                            >
+                                {entry.data.ld}
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class='text-right'>
+                    {
+                        Object.keys(instancesByYear)
+                            .toSorted((a, b) => Number(b) - Number(a))
+                            .map((year) => {
+                                const formattedInstances = instancesByYear[
+                                    year
+                                ].map((instance) => <p>{instance.location}</p>);
+
+                                return (
+                                    <div class='py-1'>
+                                        <p class='font-medium'>{year}</p>
+                                        {formattedInstances}
+                                    </div>
+                                );
+                            })
+                    }
+                </div>
+            </div>
+
+            <Content />
+        </div>
+    </article>
+</Layout>

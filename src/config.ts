@@ -18,6 +18,10 @@ export const NAV: NavItems = {
         path: '/about',
         title: 'About',
     },
+    theatre: {
+        path: '/theatre',
+        title: 'Theatre',
+    },
 };
 
 export const SITE = {

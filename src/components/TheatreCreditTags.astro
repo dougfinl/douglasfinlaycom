@@ -1,0 +1,34 @@
+---
+export interface Props {
+    center?: boolean;
+    tags: string[];
+}
+
+const { center, tags } = Astro.props;
+
+const styles: Record<string, string> = {
+    dance: 'text-zinc-900 bg-pink-300',
+    immersive: 'text-zinc-100 bg-gray-700',
+    music: 'text-zinc-900 bg-yellow-600',
+    musicals: 'text-zinc-100 bg-red-600',
+    opera: 'text-zinc-100 bg-purple-700',
+    panto: 'text-zinc-100 bg-green-700',
+    plays: 'text-zinc-800 bg-blue-300',
+};
+---
+
+<div
+    class='my-4 flex gap-3 select-none'
+    class:list={{ 'justify-center': center }}
+>
+    {
+        tags.toSorted().map((tag) => (
+            <span
+                class='rounded-full text-sm px-4 py-0.5 font-semibold lowercase inline-block'
+                class:list={styles[tag]}
+            >
+                {tag}
+            </span>
+        ))
+    }
+</div>

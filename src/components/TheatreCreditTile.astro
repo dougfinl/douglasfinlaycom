@@ -1,0 +1,30 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+export interface Props {
+    title: string;
+    image?: ImageMetadata;
+}
+
+const { title, image } = Astro.props;
+---
+
+<div class='transition hover:scale-105 mb-2'>
+    <div class='aspect-[4/3] overflow-hidden bg-neutral-400'>
+        {
+            image && (
+                <Image
+                    src={image}
+                    alt={title}
+                    width={640}
+                    densities={[1.5, 2]}
+                    class='h-full object-cover'
+                    loading='lazy'
+                />
+            )
+        }
+    </div>
+
+    <div class='text-center px-4'>{title}</div>
+</div>

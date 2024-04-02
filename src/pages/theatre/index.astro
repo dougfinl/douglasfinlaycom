@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TheatreCreditTile from '../../components/TheatreCreditTile.astro';
+
+import { getCollection } from 'astro:content';
+
+const getEarliestInstance = (
+    instances: (typeof credits)[number]['data']['instances'],
+) =>
+    Math.min(...instances.map((instance) => new Date(instance.from).getTime()));
+
+let credits = await getCollection('theatre');
+
+credits = credits
+    .filter((credit) => !credit.data.hide)
+    .sort((a, b) => {
+        const aEarliest = getEarliestInstance(a.data.instances);
+        const bEarliest = getEarliestInstance(b.data.instances);
+
+        return bEarliest - aEarliest;
+    });
+---
+
+<Layout pageTitle='Theatre' pageDescription='Theatre credits' noPadding>
+    <article>
+        <div class='grid grid-cols-1 sm:grid-cols-2 gap-x-1.5 gap-y-3'>
+            {
+                credits.map((credit) => (
+                    <a href={`/theatre/${credit.slug}`}>
+                        <TheatreCreditTile
+                            title={credit.data.title}
+                            image={credit.data.photo?.image}
+                        />
+                    </a>
+                ))
+            }
+        </div>
+    </article>
+</Layout>
