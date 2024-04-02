@@ -7,7 +7,6 @@ tags:
   - music
 photo:
   image: ./images/grace-jones.jpg
-  credit: TODO
 instances:
   - from: 16 Nov 2016
     to: 19 Nov 2016

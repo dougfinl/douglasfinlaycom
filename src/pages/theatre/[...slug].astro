@@ -58,10 +58,12 @@ entry.data.instances.forEach((instance) => {
                         class='aspect-video object-cover min-w-full'
                     />
 
-                    <div class='text-right text-sm italic px-2'>
-                        <span class='font-medium'>Photo: </span>
-                        {entry.data.photo.credit}
-                    </div>
+                    {entry.data.photo.credit && (
+                        <div class='text-right text-sm italic px-2'>
+                            <span class='font-medium'>Photo: </span>
+                            {entry.data.photo.credit}
+                        </div>
+                    )}
                 </div>
             )
         }

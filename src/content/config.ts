@@ -23,7 +23,7 @@ const theatreCollection = defineCollection({
             photo: z
                 .object({
                     image: image(),
-                    credit: z.string(),
+                    credit: z.string().optional(),
                 })
                 .optional(),
             instances: z.array(
