@@ -1,6 +1,12 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { SOCIALS } from '../config';
+
+export interface Props {
+    size?: number;
+}
+
+const { size } = Astro.props;
 ---
 
 <div>
@@ -9,7 +15,7 @@ import { SOCIALS } from '../config';
             Object.values(SOCIALS).map((socialItem) => (
                 <li class='inline-block mx-2 transition hover:scale-125'>
                     <a href={socialItem.url} aria-label={socialItem.label}>
-                        <Icon name={socialItem.icon} size={28} />
+                        <Icon name={socialItem.icon} size={size} />
                     </a>
                 </li>
             ))

@@ -1,12 +1,10 @@
 @tailwind base;
 
-@import url('https://fonts.cdnfonts.com/css/frutiger');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 
 @layer base {
     body {
-        @apply font-serif;
+        @apply font-light;
         @apply leading-relaxed;
     }
 
@@ -26,7 +24,7 @@
     }
 
     h1 {
-        @apply text-4xl lg:text-6xl;
+        @apply text-4xl sm:text-6xl;
         @apply mb-6;
     }
 

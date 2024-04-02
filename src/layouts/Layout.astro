@@ -8,11 +8,14 @@ import '../styles/global.scss';
 
 interface Props {
     fullWidth?: boolean;
+    middle?: boolean;
+    noPadding?: boolean;
     pageDescription?: string;
     pageTitle?: string;
 }
 
-const { fullWidth, pageDescription, pageTitle } = Astro.props;
+const { fullWidth, middle, noPadding, pageDescription, pageTitle } =
+    Astro.props;
 ---
 
 <!doctype html>
@@ -26,11 +29,21 @@ const { fullWidth, pageDescription, pageTitle } = Astro.props;
         <ViewTransitions />
     </head>
 
-    <body class='bg-zinc-100 px-2'>
+    <body class='bg-zinc-100 dark:bg-zinc-900 dark:text-zinc-300'>
         <div class='flex flex-col h-screen'>
             <Nav />
 
-            <main class:list={['grow pb-4', { container: !fullWidth }]}>
+            <main
+                class:list={[
+                    'grow pb-4',
+                    {
+                        container: !fullWidth,
+                        'px-2': !noPadding,
+                        'flex flex-col justify-center': middle,
+                    },
+                ]}
+            >
+                {pageTitle && <h1 class='text-center'>{pageTitle}</h1>}
                 <slot />
             </main>
 

@@ -33,14 +33,14 @@ export const SOCIALS: Socials = {
         url: 'https://github.com/douglasfinlay',
         icon: 'github',
     },
-    linkedin: {
-        label: 'LinkedIn',
-        url: 'https://uk.linkedin.com/in/douglasfinlay',
-        icon: 'linkedin',
-    },
     email: {
         label: 'Mail',
         url: 'mailto:douglas@douglasfinlay.com',
         icon: 'envelope-fill',
+    },
+    linkedin: {
+        label: 'LinkedIn',
+        url: 'https://uk.linkedin.com/in/douglasfinlay',
+        icon: 'linkedin',
     },
 };
