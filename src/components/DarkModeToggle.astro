@@ -1,0 +1,43 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div>
+    <input
+        id='light-switch'
+        name='light-switch'
+        type='checkbox'
+        class='sr-only'
+    />
+
+    <label for='light-switch' class='cursor-pointer hidden dark:block'>
+        <Icon name='moon' size={20} />
+    </label>
+
+    <label for='light-switch' class='cursor-pointer dark:hidden'>
+        <Icon name='sun' size={20} />
+    </label>
+
+    <span class='sr-only'>Switch to light / dark mode</span>
+</div>
+
+<script>
+    const lightSwitch =
+        document.querySelector<HTMLInputElement>('#light-switch');
+
+    if (lightSwitch) {
+        if (localStorage.getItem('dark-mode') === 'true') {
+            lightSwitch.checked = true;
+        }
+
+        lightSwitch.addEventListener('change', () => {
+            if (lightSwitch.checked) {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('dark-mode', 'true');
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('dark-mode', 'false');
+            }
+        });
+    }
+</script>

@@ -1,5 +1,6 @@
 ---
 import { NAV, SITE } from '../config';
+import DarkModeToggle from './DarkModeToggle.astro';
 ---
 
 <nav class='container flex justify-between items-center h-24 shrink-0'>
@@ -7,10 +8,13 @@ import { NAV, SITE } from '../config';
         <a href='/'>{SITE.title}</a>
     </div>
 
-    <ul class='flex uppercase text-md' transition:animate='fade'>
+    <ul
+        class='flex gap-6 items-center uppercase text-md'
+        transition:animate='fade'
+    >
         {
             Object.values(NAV).map(({ path, title }) => (
-                <li class='ml-6'>
+                <li>
                     <a
                         class:list={[
                             `border-b-2 hover:border-gray-700 transition`,
@@ -29,5 +33,7 @@ import { NAV, SITE } from '../config';
                 </li>
             ))
         }
+
+        <li><DarkModeToggle /></li>
     </ul>
 </nav>

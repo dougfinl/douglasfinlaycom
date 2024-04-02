@@ -35,3 +35,19 @@ const { title, description } = Astro.props;
     data-goatcounter='https://douglasfinlay.goatcounter.com/count'
     async
     src='//gc.zgo.at/count.js'></script>
+
+<script is:inline>
+    function loadDarkModePreference() {
+        if (
+            localStorage.getItem('dark-mode') === 'true' ||
+            (!('dark-mode' in localStorage) &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }
+
+    loadDarkModePreference();
+</script>

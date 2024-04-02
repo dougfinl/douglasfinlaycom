@@ -3,7 +3,6 @@ import Head from '../components/Head.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { SITE } from '../config';
-import { ViewTransitions } from 'astro:transitions';
 import '../styles/global.scss';
 
 interface Props {
@@ -25,8 +24,6 @@ const { fullWidth, middle, noPadding, pageDescription, pageTitle } =
             title={pageTitle ? `${pageTitle} · ${SITE.title}` : SITE.title}
             description={pageDescription ?? SITE.description}
         />
-
-        <ViewTransitions />
     </head>
 
     <body class='bg-zinc-100 dark:bg-zinc-900 dark:text-zinc-300'>

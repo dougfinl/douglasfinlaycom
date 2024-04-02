@@ -6,6 +6,9 @@
     body {
         @apply font-light;
         @apply leading-relaxed;
+        
+        // transition smoothly between light and dark mode
+        @apply transition-colors duration-150;
     }
 
     h1,
