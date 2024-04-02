@@ -17,12 +17,12 @@ import DarkModeToggle from './DarkModeToggle.astro';
                 <li>
                     <a
                         class:list={[
-                            `border-b-2 hover:border-gray-700 transition`,
-                            Astro.url.pathname !== path
+                            `border-b-2 hover:border-gray-700 dark:hover:border-orange-600 transition`,
+                            !Astro.url.pathname.startsWith(path)
                                 ? 'border-transparent'
                                 : '',
-                            Astro.url.pathname === path
-                                ? 'border-gray-700'
+                            Astro.url.pathname.startsWith(path)
+                                ? 'border-gray-700 dark:border-orange-600'
                                 : '',
                         ]}
                         href={path}
