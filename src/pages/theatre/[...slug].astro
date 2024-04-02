@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import TheatreCreditTags from '../../components/TheatreCreditTags.astro';
+import { Icon } from 'astro-icon/components';
 
 export async function getStaticPaths() {
     const theatreCreditEntries = await getCollection('theatre');
@@ -28,21 +29,8 @@ entry.data.instances.forEach((instance) => {
 
 <!-- TODO: noindex -->
 <Layout pageTitle={entry.data.title} noPadding>
-    <a href='/theatre' class='flex gap-1 items-center px-2'>
-        <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='16'
-            height='16'
-            fill='currentColor'
-            class='bi bi-arrow-left inline'
-            viewBox='0 0 16 16'
-        >
-            <path
-                fill-rule='evenodd'
-                d='M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8'
-            ></path>
-        </svg>
-
+    <a href='/theatre' class='flex gap-1 items-center pb-2 hover:underline'>
+        <Icon name='arrow-left' size={20} />
         <span>Back</span>
     </a>
 
@@ -71,9 +59,11 @@ entry.data.instances.forEach((instance) => {
         <div class='px-2'>
             <TheatreCreditTags tags={entry.data.tags} />
 
-            <div class='grid grid-cols-1 sm:grid-cols-2 text-sm mb-4'>
-                <div>
-                    <dl class='divide-y divide-gray-200'>
+            <div
+                class='grid grid-cols-1 sm:grid-cols-3 text-sm mb-4 divide-x divide-gray-300 dark:divide-gray-600'
+            >
+                <div class='sm:col-span-2'>
+                    <dl>
                         <div
                             class='px-4 py-1 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0'
                         >

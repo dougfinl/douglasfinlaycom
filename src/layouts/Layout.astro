@@ -28,7 +28,9 @@ const { fullWidth, middle, noPadding, pageDescription, pageTitle } =
 
     <body class='bg-zinc-100 dark:bg-zinc-900 dark:text-zinc-300'>
         <div class='flex flex-col h-screen'>
-            <Nav />
+            <header>
+                <Nav />
+            </header>
 
             <main
                 class:list={[
@@ -40,8 +42,13 @@ const { fullWidth, middle, noPadding, pageDescription, pageTitle } =
                     },
                 ]}
             >
-                {pageTitle && <h1 class='text-center'>{pageTitle}</h1>}
-                <slot />
+                <article>
+                    <header>
+                        {pageTitle && <h1 class='text-center'>{pageTitle}</h1>}
+                    </header>
+
+                    <slot />
+                </article>
             </main>
 
             <Footer />

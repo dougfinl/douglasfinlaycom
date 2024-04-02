@@ -4,10 +4,9 @@
 
 @layer base {
     body {
-        @apply font-light;
-        @apply leading-relaxed;
-        
-        // transition smoothly between light and dark mode
+        @apply font-light leading-relaxed;
+
+        // transition smoothly between light and dark themes
         @apply transition-colors duration-150;
     }
 
@@ -17,22 +16,19 @@
     h4,
     h5,
     h6 {
-        @apply font-extralight;
-        @apply font-sans;
+        @apply font-sans font-extralight;
     }
 
     nav {
-        @apply font-extralight;
-        @apply font-sans;
+        @apply font-sans font-extralight;
     }
 
     h1 {
-        @apply text-4xl sm:text-6xl;
-        @apply mb-6;
+        @apply text-4xl sm:text-6xl mb-6;
     }
 
     p a {
-        @apply text-blue-800;
+        @apply text-blue-800 dark:text-blue-400;
 
         &:hover {
             @apply underline;
