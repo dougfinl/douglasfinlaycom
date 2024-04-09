@@ -1,0 +1,54 @@
+---
+import { Icon } from 'astro-icon/components';
+import { NAV, SITE } from '../config';
+import DarkModeToggle from './DarkModeToggle.astro';
+---
+
+<header
+    class='shrink container flex flex-wrap items-center justify-between px-2 py-8'
+>
+    <a
+        href='/'
+        class='text-xl sm:text-2xl uppercase whitespace-nowrap inline-block'
+        >{SITE.title}</a
+    >
+
+    <!-- menu toggle for small screens -->
+    <input type='checkbox' id='toggle-menu' class='hidden peer' />
+    <label for='toggle-menu' class='block sm:hidden'>
+        <Icon name='list' size={28} />
+    </label>
+
+    <!-- force flex layout to wrap onto a new row on small screens -->
+    <div class='w-full block sm:hidden'></div>
+
+    <nav class='grow hidden peer-checked:block sm:block'>
+        <ul
+            class='flex flex-col sm:flex-row gap-2 sm:gap-6 items-center justify-center sm:justify-end'
+        >
+            {
+                Object.values(NAV).map(({ path, title }) => (
+                    <li>
+                        <a
+                            class:list={[
+                                `border-b-2 hover:border-gray-700 dark:hover:border-orange-600 transition`,
+                                !Astro.url.pathname.startsWith(path)
+                                    ? 'border-transparent'
+                                    : '',
+                                Astro.url.pathname.startsWith(path)
+                                    ? 'border-gray-700 dark:border-orange-600'
+                                    : '',
+                            ]}
+                            href={path}
+                            title={title}
+                        >
+                            {title}
+                        </a>
+                    </li>
+                ))
+            }
+
+            <li><DarkModeToggle /></li>
+        </ul>
+    </nav>
+</header>

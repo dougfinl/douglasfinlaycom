@@ -1,7 +1,7 @@
 ---
-import Head from '../components/Head.astro';
-import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Head from '../components/Head.astro';
+import Header from '../components/Header.astro';
 import { SITE } from '../config';
 import '../styles/global.scss';
 
@@ -28,9 +28,7 @@ const { fullWidth, middle, noPadding, pageDescription, pageTitle } =
 
     <body class='bg-zinc-100 dark:bg-zinc-900 dark:text-zinc-300'>
         <div class='flex flex-col h-screen'>
-            <header>
-                <Nav />
-            </header>
+            <Header />
 
             <main
                 class:list={[
