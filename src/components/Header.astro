@@ -52,3 +52,25 @@ import DarkModeToggle from './DarkModeToggle.astro';
         </ul>
     </nav>
 </header>
+
+<script>
+    import resolveConfig from 'tailwindcss/resolveConfig';
+    import tailwindConfig from '../../tailwind.config.mjs';
+
+    const config = resolveConfig(tailwindConfig);
+
+    const breakpoint = config.theme.screens.sm;
+    const toggleMenuInput =
+        document.querySelector<HTMLInputElement>('#toggle-menu');
+
+    if (toggleMenuInput) {
+        window.matchMedia(`screen and (min-width: ${breakpoint})`).onchange = (
+            event,
+        ) => {
+            if (event.matches) {
+                // reset the mobile nav menu's "opened" state when moving to a larger screen
+                toggleMenuInput.checked = false;
+            }
+        };
+    }
+</script>
