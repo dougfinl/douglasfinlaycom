@@ -15,8 +15,17 @@ import DarkModeToggle from './DarkModeToggle.astro';
 
     <!-- menu toggle for small screens -->
     <input type='checkbox' id='toggle-menu' class='hidden peer' />
-    <label for='toggle-menu' class='block sm:hidden'>
+    <label
+        for='toggle-menu'
+        class='block peer-checked:hidden sm:!hidden cursor-pointer'
+    >
         <Icon name='list' size={28} />
+    </label>
+    <label
+        for='toggle-menu'
+        class='hidden peer-checked:block sm:!hidden cursor-pointer'
+    >
+        <Icon name='x' size={28} />
     </label>
 
     <!-- force flex layout to wrap onto a new row on small screens -->
@@ -24,19 +33,23 @@ import DarkModeToggle from './DarkModeToggle.astro';
 
     <nav class='grow hidden peer-checked:block sm:block'>
         <ul
-            class='flex flex-col sm:flex-row gap-2 sm:gap-6 items-center justify-center sm:justify-end'
+            class='flex flex-col sm:flex-row sm:gap-6 items-center justify-center sm:justify-end pt-2 sm:pt-0'
         >
             {
                 Object.values(NAV).map(({ path, title }) => (
-                    <li>
+                    <li class='h-10 sm:h-fit w-full sm:w-fit'>
                         <a
                             class:list={[
-                                `border-b-2 hover:border-gray-700 dark:hover:border-orange-600 transition`,
+                                'block w-full h-full text-center transition flex items-center justify-center',
+                                // apply padding + highlight background when hovering on small screens
+                                'rounded-lg sm:rounded-none hover:bg-slate-200 hover:dark:bg-slate-600 sm:hover:!bg-transparent',
+                                // underline when hovering on large screens
+                                'sm:border-b-2 sm:hover:border-gray-700 sm:dark:hover:border-slate-600',
                                 !Astro.url.pathname.startsWith(path)
                                     ? 'border-transparent'
                                     : '',
                                 Astro.url.pathname.startsWith(path)
-                                    ? 'border-gray-700 dark:border-orange-600'
+                                    ? 'border-gray-700 dark:border-slate-600'
                                     : '',
                             ]}
                             href={path}
@@ -48,7 +61,17 @@ import DarkModeToggle from './DarkModeToggle.astro';
                 ))
             }
 
-            <li><DarkModeToggle /></li>
+            <li class='h-10 sm:h-fit w-full sm:w-fit'>
+                <div
+                    class:list={[
+                        'block w-full sm:min-w-8 h-full text-center transition',
+                        // apply padding + highlight background when hovering on small screens
+                        'rounded-lg sm:rounded-none hover:bg-slate-200 hover:dark:bg-slate-600 sm:hover:!bg-transparent',
+                    ]}
+                >
+                    <DarkModeToggle />
+                </div>
+            </li>
         </ul>
     </nav>
 </header>
