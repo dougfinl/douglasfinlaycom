@@ -11,4 +11,6 @@ export default defineConfig({
             applyBaseStyles: false,
         }),
     ],
+    output: 'static',
+    site: 'https://douglasfinlay.com',
 });
